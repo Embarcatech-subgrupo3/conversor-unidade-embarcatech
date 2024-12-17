@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 // PROTÓTIPO DAS FUNÇÕES
 double celsius(double x, char y);
@@ -52,9 +53,10 @@ int main(void)
             temp_convertida = kelvin(temp_original, unidade_convertida);
             break;
         default:
-            printf("Entrada inválida.");
+            printf("Entrada inválida.\n");
+            printf("Encerrando...\n");
             sleep(1);
-            printf("Encerrando...");
+            exit(EXIT_FAILURE); // encerra o programa
             break;
     }
 
