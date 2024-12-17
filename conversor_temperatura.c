@@ -91,7 +91,8 @@ double fahrenheit(double x, char y)
     }
     else if (y == 'K') // fahrenheit para kelvin
     {   
-        temp_convertida = (x - 32) * (float) 5/9 + 273.15;
+        temp_convertida = (x - 32)/1.8f;
+        temp_convertida += 273.15f;
     }
 
     return temp_convertida;
@@ -103,11 +104,12 @@ double kelvin(double x, char y)
 
     if (y == 'F') // kelvin para fahrenheit
     {
-        temp_convertida = (x * 1.8) - 459,67;
+        temp_convertida = ((x - 273.15f) * 1.8f) + 32;
     }
     else if (y == 'C') // kelvin para celsius
     {
-        temp_convertida = x + 273.15;
+        temp_convertida = x - 273.15f;
+        temp_convertida = temp_convertida * 1.8f + 32;
     }
 
     return temp_convertida;
