@@ -15,22 +15,25 @@ int main(void)
 {   
     printf("PROGRAMA PARA CONVERTER PARA CELSIUS, FAHRENHEIT OU KELVIN\n");
     sleep(1); // delay de um segundo
-    printf("Exemplos de entradas válidas: 30C | 70.8F | 10.2K\n");
-    sleep(1);
-
-    double temp_original;
-    char unidade_original;
-    printf("Insira a temperatura com a formatação especificada: ");
-    scanf("%lf%c", &temp_original, &unidade_original);
     
+    double temp_original;
+    printf("Insira a temperatura: ");
+    scanf("%lf", &temp_original);
+
     char c;
     while ((c = getchar()) != '\n' && c != EOF) // limpa o buffer
         ;
 
-    char unidade_convertida;
-    double temp_convertida;
-
+    char unidade_original;
+    printf("Insira a unidade da temperatura: ");
+    scanf("%c", &unidade_original);
     unidade_original = toupper(unidade_original);
+    
+    while ((c = getchar()) != '\n' && c != EOF) // limpa o buffer
+        ;
+
+    double temp_convertida;
+    char unidade_convertida;
 
     switch(unidade_original)
     {
@@ -57,7 +60,6 @@ int main(void)
             printf("Encerrando...\n");
             sleep(1);
             exit(EXIT_FAILURE); // encerra o programa
-            break;
     }
 
     printf("%.2lf%c equivale a %.2lf%c\n", temp_original, unidade_original, 
