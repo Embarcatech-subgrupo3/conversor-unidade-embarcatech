@@ -1,64 +1,89 @@
 #include <stdio.h>
 
     int opcao;
-    double horas, minutos, segundos;
+    double valor, horas, minutos, segundos;
+    char un_convert;
 
 
-// Função para converter horas em minutos e segundos
-void convertehoras(double horas){
+// Função para converter horas em minutos ou segundos
+void convertehoras(double horas, char un_convert){
+    if(un_convert == 'M'){
     minutos = horas*60;
+    printf("%.2f horas é equivalente a %.2f minutos.\n", horas, minutos);
+    }
+    else if (un_convert == 'S') {
     segundos = horas*3600;
-    printf("%.2f horas é equivalente a %.2f minutos ou %.2f segundos.\n", horas, minutos, segundos);
+    printf("%.2f horas é equivalente a %.2f segundos.\n", horas, segundos);    
+    }
+    else {
+        printf("Unidade a ser convertida invalida.\n");
+    }
 }
 
-// Função para converter minutos em horas e segundos
-void converteminutos(double minutos){
+// Função para converter minutos em horas ou segundos
+void converteminutos(double minutos, char un_convert){
+    if(un_convert =='H'){
     horas = minutos/60.0;
+    printf("%.2f minutos é equivalente a %.2f horas.\n", minutos, horas);
+    }
+    else if (un_convert =='S') {
     segundos = minutos*60;
-    printf("%.2f minutos é equivalente a %.2f horas ou %.2f segundos.\n", minutos, horas, segundos);
+    printf("%.2f minutos é equivalente a %.2f segundos.\n", minutos, segundos);    
+    }
+    else {
+        printf("Unidade a ser convertida invalida.\n");
+    }
 }
 
-// Função para converter segundos em horas e minutos
-void convertesegundos(double segundos){
+// Função para converter segundos em horas ou minutos
+void convertesegundos(double segundos, char un_convert){
+    if(un_convert == 'H'){
     horas = segundos/3600.0;
+    printf("%.2f segundos é equivalente a %.2f horas.\n", segundos, horas);
+    }
+    else if (un_convert == 'M'){
     minutos = segundos/60;
-    printf("%.2f segundos é equivalente a %.2f horas ou %.2f minutos.\n", segundos, horas, minutos);
+    printf("%.2f segundos é equivalente a %.2f minutos.\n", segundos, minutos);    
+    }
+    else {
+        printf("Unidade a ser convertida invalida.\n");
+    }
 }
 
 int main() {
 
-//Seleção de qual unidade será convertida
+//Seleção do valor da unidade que será convertida
 
-    printf("Conversor de unidades de tempo, digite uma opção de 1 a 3:\n");
-    printf("1. Para converter horas em minutos e segundos\n");
-    printf("2. Para converter minutos em horas e segundos\n");
-    printf("3. Para converter segundos em horas e minutos\n");
+    printf("Conversor de Unidades de Tempo.\n");
+    printf("Digite o valor que deseja converter: ");
+    scanf("%lf", &valor);
+
+//Seleção de qual unidade a ser convertida 
+
+    printf("Qual sua unidade de origem? Digite uma opção de 1 a 3:\n");
+    printf("1. Para converter horas\n");
+    printf("2. Para converter minutos\n");
+    printf("3. Para converter segundos\n");
     scanf("%d", &opcao);
+    
+//Seleção de para qual unidade o valor será convertido   
+    
+    printf("Selecione para qual unidade o valor será convertido:\n"); 
+    printf("H para horas, M para minutos, S para segundos): ");
+    scanf(" %c", &un_convert);
 
     switch (opcao) {
         case 1:
-            
-            printf("Digite o valor em horas: ");
-            scanf("%lf", &horas);
-            
-            convertehoras(horas);
+            convertehoras(valor, un_convert);
             break;
         case 2:
-            
-            printf("Digite o valor em minutos: ");
-            scanf("%lf", &minutos);
-            
-            converteminutos(minutos);
+            converteminutos(valor, un_convert);
             break;
         case 3:
-            
-            printf("Digite o valor em segundos: ");
-            scanf("%lf", &segundos);
-            
-            convertesegundos(segundos);
+            convertesegundos(valor, un_convert);
             break;
         default:
-            printf("Opcao invalida!\n");
+            printf("Unidade invalida!\n");
             break;
     }
 
