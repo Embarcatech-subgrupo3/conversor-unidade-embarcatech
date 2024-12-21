@@ -48,5 +48,34 @@ char continuar;
 
 double converterDados(double valor, char unidade_origem[3], char unidade_destino[3])
 {
-    return valor; // Função de conversão será implementada na próxima etapa
+    double fator_origem = 1.0;
+    double fator_destino = 1.0;
+
+    if (strcmp(unidade_origem, "b") == 0)
+        fator_origem = 1.0 / 8;
+    else if (strcmp(unidade_origem, "B") == 0)
+        fator_origem = 1.0;
+    else if (strcmp(unidade_origem, "KB") == 0)
+        fator_origem = 1024.0;
+    else if (strcmp(unidade_origem, "MB") == 0)
+        fator_origem = 1024.0 * 1024.0;
+    else if (strcmp(unidade_origem, "GB") == 0)
+        fator_origem = 1024.0 * 1024.0 * 1024.0;
+    else if (strcmp(unidade_origem, "TB") == 0)
+        fator_origem = 1024.0 * 1024.0 * 1024.0 * 1024.0;
+
+    if (strcmp(unidade_destino, "b") == 0)
+        fator_destino = 1.0 / 8;
+    else if (strcmp(unidade_destino, "B") == 0)
+        fator_destino = 1.0;
+    else if (strcmp(unidade_destino, "KB") == 0)
+        fator_destino = 1024.0;
+    else if (strcmp(unidade_destino, "MB") == 0)
+        fator_destino = 1024.0 * 1024.0;
+    else if (strcmp(unidade_destino, "GB") == 0)
+        fator_destino = 1024.0 * 1024.0 * 1024.0;
+    else if (strcmp(unidade_destino, "TB") == 0)
+        fator_destino = 1024.0 * 1024.0 * 1024.0 * 1024.0;
+
+    return (valor * fator_origem) / fator_destino;
 }
