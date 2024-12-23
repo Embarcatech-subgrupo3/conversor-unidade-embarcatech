@@ -18,5 +18,6 @@ Funcionalidades do programa:
 ## Estrutura da Equipe
 - **Líder**: Paulo Henrique de Farias Martins
 - **Desenvolvedores**: 
-Bruno Santos Fernandes
-Matheus Félix Dias
+Bruno Santos Fernandes;
+
+Matheus Félix Dias;
