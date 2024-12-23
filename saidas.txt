@@ -1,4 +1,4 @@
-Resultados das conversões de dados digitais:
+Resultados da conversão:
 5708.00 MB equivale a 47882174464.000 b
 1712.00 KB equivale a 0.002 GB
 798.00 B equivale a 0.000 GB
