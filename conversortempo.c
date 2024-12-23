@@ -1,91 +1,93 @@
 #include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
 
-    int opcao;
-    double valor, horas, minutos, segundos;
-    char un_convert;
+
+double valor, horas, minutos, segundos;
+char un_convert, opcao;
 
 
 // Função para converter horas em minutos ou segundos
-void convertehoras(double horas, char un_convert){
+void convertehoras(FILE *saida, double horas, char un_convert){
     if(un_convert == 'M'){
     minutos = horas*60;
-    printf("%.2f horas é equivalente a %.2f minutos.\n", horas, minutos);
+    fprintf(saida, "%.2f horas é equivalente a %.2f minutos.\n", horas, minutos);
     }
     else if (un_convert == 'S') {
     segundos = horas*3600;
-    printf("%.2f horas é equivalente a %.2f segundos.\n", horas, segundos);    
+    fprintf(saida, "%.2f horas é equivalente a %.2f segundos.\n", horas, segundos);    
     }
     else {
-        printf("Unidade a ser convertida invalida.\n");
+        fprintf(saida, "Unidade a ser convertida invalida.\n");
     }
 }
 
 // Função para converter minutos em horas ou segundos
-void converteminutos(double minutos, char un_convert){
+void converteminutos(FILE *saida, double minutos, char un_convert){
     if(un_convert =='H'){
     horas = minutos/60.0;
-    printf("%.2f minutos é equivalente a %.2f horas.\n", minutos, horas);
+    fprintf(saida, "%.2f minutos é equivalente a %.2f horas.\n", minutos, horas);
     }
     else if (un_convert =='S') {
     segundos = minutos*60;
-    printf("%.2f minutos é equivalente a %.2f segundos.\n", minutos, segundos);    
+    fprintf(saida, "%.2f minutos é equivalente a %.2f segundos.\n", minutos, segundos);    
     }
     else {
-        printf("Unidade a ser convertida invalida.\n");
+        fprintf(saida, "Unidade a ser convertida invalida.\n");
     }
 }
 
 // Função para converter segundos em horas ou minutos
-void convertesegundos(double segundos, char un_convert){
+void convertesegundos(FILE *saida, double segundos, char un_convert){
     if(un_convert == 'H'){
     horas = segundos/3600.0;
-    printf("%.2f segundos é equivalente a %.2f horas.\n", segundos, horas);
+    fprintf(saida, "%.2f segundos é equivalente a %.2f horas.\n", segundos, horas);
     }
     else if (un_convert == 'M'){
     minutos = segundos/60;
-    printf("%.2f segundos é equivalente a %.2f minutos.\n", segundos, minutos);    
+    fprintf(saida, "%.2f segundos é equivalente a %.2f minutos.\n", segundos, minutos);    
     }
     else {
-        printf("Unidade a ser convertida invalida.\n");
+        fprintf(saida, "Unidade a ser convertida invalida.\n");
     }
 }
 
-int main() {
+int main(void) {
 
-//Seleção do valor da unidade que será convertida
+    FILE *entrada = fopen("entradadedados.txt", "r");
+    FILE *saida = fopen("saida.txt", "w");
 
-    printf("Conversor de Unidades de Tempo.\n");
-    printf("Digite o valor que deseja converter: ");
-    scanf("%lf", &valor);
+    if (entrada == NULL || saida == NULL)
+    {
+        printf("Erro ao abrir arquivo.\n");
+        return 1;
+    }
 
-//Seleção de qual unidade a ser convertida 
+    fprintf(saida, "Resultado da conversão:\n");
 
-    printf("Qual sua unidade de origem? Digite uma opção de 1 a 3:\n");
-    printf("1. Para converter horas\n");
-    printf("2. Para converter minutos\n");
-    printf("3. Para converter segundos\n");
-    scanf("%d", &opcao);
+    while (fscanf(entrada, "%lf %c %c\n",
+            &valor, &opcao, &un_convert) == 3)
+    {
+
+    opcao = toupper(opcao);
+    un_convert = toupper(un_convert);
     
-//Seleção de para qual unidade o valor será convertido   
-    
-    printf("Selecione para qual unidade o valor será convertido:\n"); 
-    printf("H para horas, M para minutos, S para segundos): ");
-    scanf(" %c", &un_convert);
-
     switch (opcao) {
-        case 1:
-            convertehoras(valor, un_convert);
+        case 'H':
+            convertehoras(saida, valor, un_convert);
             break;
-        case 2:
-            converteminutos(valor, un_convert);
+        case 'M':
+            converteminutos(saida, valor, un_convert);
             break;
-        case 3:
-            convertesegundos(valor, un_convert);
+        case 'S':
+            convertesegundos(saida, valor, un_convert);
             break;
         default:
             printf("Unidade invalida!\n");
             break;
-    }
+    }}
+    fclose(entrada);
+    fclose(saida);
 
     return 0;
 }
