@@ -1,5 +1,6 @@
 // Conversor de unidades de comprimento
 // 20/12/2024
+// Criado por Lana Ramos
 
 #include <stdio.h>
 
