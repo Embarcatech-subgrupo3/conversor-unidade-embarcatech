@@ -26,6 +26,18 @@ Funcionalidades do programa:
     Luiz Gustavo do Valle Vieira
 ## Compilação e Execução
 ### No Windows
-1. **Compilar o código:** - Abra o Prompt de Comando (cmd). - Navegue até o diretório onde o arquivo `main.c` está localizado. ```sh cd caminho\para\o\diretorio ``` - Compile o código usando o GCC. ```sh gcc main.c -o conversor ``` 2. **Executar o programa:** - Ainda no Prompt de Comando, execute o programa compilado. ```sh conversor.exe ```
+1. **Compilar o código:** 
+- Abra o Prompt de Comando (cmd). 
+- Navegue até o diretório onde o arquivo `main.c` está localizado. 
+``` cd caminho\para\o\diretorio ``` 
+- Compile o código usando o GCC. ``` gcc main.c -o conversor ``` 
+2. **Executar o programa:** 
+- Ainda no Prompt de Comando, execute o programa compilado. ``` conversor.exe ```
 ### No Linux
-1. **Compilar o código:** - Abra o terminal. - Navegue até o diretório onde o arquivo `main.c` está localizado. ```sh cd /caminho/para/o/diretorio ``` - Compile o código usando o GCC. ```sh gcc main.c -o conversor ``` 2. **Executar o programa:** - Ainda no terminal, execute o programa compilado. ```sh ./conversor ```
+1. **Compilar o código:** 
+- Abra o terminal. 
+- Navegue até o diretório onde o arquivo `main.c` está localizado. 
+``` cd /caminho/para/o/diretorio ``` 
+- Compile o código usando o GCC. ``` gcc main.c -o conversor ``` 
+2. **Executar o programa:** 
+- Ainda no terminal, execute o programa compilado. ``` ./conversor ```
