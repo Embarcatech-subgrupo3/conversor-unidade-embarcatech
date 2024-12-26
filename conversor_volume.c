@@ -1,80 +1,84 @@
 // conversor de volume
 //21/12/2024
 // Unidades de volume (litro, mililitro, metros cúbicos)
-#include<stdio.h>
-#include<math.h>
-
+#include <stdio.h>
+#include <stdlib.h>
 
 double valor, resultado;
 char unidade_inicial, unidade_final;
 
-int main() {
-    //inicio: pedi ao usuario para iserir o valor a ser convertido
-   
-    printf("digite o valor a ser convertido         ");
-    scanf("%lf", &valor);
-    getchar(); //limpar o teclado
+int main()
+{
+    FILE *entrada = fopen("test_cases_1000.txt", "r");
+    FILE *saida = fopen("output.txt", "w");
 
-    // iserir a unidade inicial
-    printf(" Digite a unidade inicial:  l para litros,   m para mililitro,     c para metros cubicos    ");
-    scanf("%c", &unidade_inicial);
-    getchar();
-
-    // unidade final
-    printf("Digite a unidade final:  l para litros,  m para mililitro,  c para metros cubicos");
-    scanf("%c", &unidade_final);
-
-
-    //fuçao para converter de acordo com a unidade escolhida
-    switch (unidade_inicial)
+    if (entrada == NULL || saida == NULL)
     {
-    case 'l': // se a unidade inicial for litros
-        switch(unidade_final){
-            case 'm': //se a unidade final for mililitro
-                resultado = valor*1000;
-            break;
-            case 'c': //se a unidade final for metros cubicos 
-                 resultado = valor*1000;
-            break;
-    default:
-    printf("unidade final inválida. \n");
-    return 1;    }
-    break;
-
-    case 'm': // se a unidade inicial for mililitro
-        switch(unidade_final){
-            case 'l': //se a unidade final for litro
-                resultado = valor/1000;
-            break;
-            case 'c': //se a unidade final for metros cubicos 
-                 resultado = valor/1000000;
-            break;
-    default:
-    printf("unidade final inválida. \n");
-    return 1;    
+        printf("Erro ao abrir os arquivos.\n");
+        return 1;
     }
-    break;
 
-    case 'c': // se a unidade inicial for metros cubicos
-        switch(unidade_final){
-            case 'm': //se a unidade final for mililitro
-                resultado = valor*1000000;
+    while (fscanf(entrada, "%lf\n%c\n%c\n", &valor, &unidade_inicial, &unidade_final) == 3)
+    {
+        // Função para converter de acordo com a unidade escolhida
+        switch (unidade_inicial)
+        {
+        case 'l': // se a unidade inicial for litros
+            switch (unidade_final)
+            {
+            case 'm': // se a unidade final for mililitro
+                resultado = valor * 1000;
+                break;
+            case 'c': // se a unidade final for metros cubicos
+                resultado = valor / 1000;
+                break;
+            default:
+                fprintf(saida, "unidade final inválida\n");
+                continue;
+            }
             break;
-            case 'l': //se a unidade final for litros
-                resultado = valor*1000;
+
+        case 'm': // se a unidade inicial for mililitro
+            switch (unidade_final)
+            {
+            case 'l': // se a unidade final for litro
+                resultado = valor / 1000;
+                break;
+            case 'c': // se a unidade final for metros cubicos
+                resultado = valor / 1000000;
+                break;
+            default:
+                fprintf(saida, "unidade final inválida\n");
+                continue;
+            }
             break;
-    default:
-    printf("unidade final inválida. \n");
-    return 1;    
+
+        case 'c': // se a unidade inicial for metros cubicos
+            switch (unidade_final)
+            {
+            case 'm': // se a unidade final for mililitro
+                resultado = valor * 1000000;
+                break;
+            case 'l': // se a unidade final for litros
+                resultado = valor * 1000;
+                break;
+            default:
+                fprintf(saida, "unidade final inválida\n");
+                continue;
+            }
+            break;
+
+        default:
+            fprintf(saida, "unidade inicial inválida\n");
+            continue;
+        }
+
+        // Escreve o resultado no arquivo de saída
+        fprintf(saida, "%.2lf %c\n", resultado, unidade_final);
     }
-    break;
 
-    default: 
-    
+    fclose(entrada);
+    fclose(saida);
 
-    // mostrar o resultado da conversão
-    printf("%.2lf%c\n", resultado, unidade_final);
-
-    return 1;
-    }
+    return 0;
 }
