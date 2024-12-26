@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-// #include "conversor-comprimento.h"
-// #include "conversor-temperatura.h"
-// #include "conversor-massa.h"
-// #include "conversor-volume.h"
-// #include "conversor-velocidade.h"
-// #include "conversor-potencia.h"
-// #include "conversor-area.h"
-// #include "conversor-tempo.h"
-// #include "conversor-dados.h"
+#include "conversor_comprimento.h"
+#include "conversor_temperatura.h"
+#include "conversor_massa.h"
+#include "conversor_volume.h"
+#include "conversor_velocidade.h"
+// #include "conversor_potencia.h"
+// #include "conversor_area.h"
+#include "conversor_tempo.h"
+#include "conversor_dados.h"
 
 
 // menu para mostrar as opções
@@ -19,8 +19,8 @@ void mostrarMenu() {
     printf("3. Conversor de Volume\n");
     printf("4. Conversor de Temperatura\n");
     printf("5. Conversor de Velocidade\n");
-    printf("6. Conversor de Potência\n");
-    printf("7. Conversor de Área\n");
+    // printf("6. Conversor de Potência\n");
+    // printf("7. Conversor de Área\n");
     printf("8. Conversor de Tempo\n");
     printf("9. Conversor de Dados Digitais\n");
     printf("10. Sair\n");
@@ -57,11 +57,11 @@ int main() {
                 break;
             case 6:
                 printf("\n=== Conversor de Potência ===\n");
-                conversorPotencia();
+                // conversorPotencia();
                 break;
             case 7:
                 printf("\n=== Conversor de Área ===\n");
-                conversorArea();
+                // conversorArea();
                 break;
             case 8:
                 printf("\n=== Conversor de Tempo ===\n");
