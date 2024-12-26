@@ -18,12 +18,12 @@ Funcionalidades do programa:
 ## Estrutura da Equipe
 - **Líder**: Paulo Henrique de Farias Martins
 - **Desenvolvedores**:
-    Bruno Santos Fernandes
-    Matheus Félix Dias
-    Lana Ramos Gomes
-    Kayla Cristinny Silva Santana
-    Miquele Gomes Nogueira Santana
-    Luiz Gustavo do Valle Vieira
+    Bruno Santos Fernandes,
+    ,Matheus Félix Dias
+    ,Lana Ramos Gomes
+    ,Kayla Cristinny Silva Santana
+    ,Miquele Gomes Nogueira Santana
+    ,Luiz Gustavo do Valle Vieira
 ## Compilação e Execução
 ### No Windows
 1. **Compilar o código:** 
