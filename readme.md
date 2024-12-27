@@ -17,4 +17,27 @@ Funcionalidades do programa:
 
 ## Estrutura da Equipe
 - **Líder**: Paulo Henrique de Farias Martins
-- **Desenvolvedores**: 
+- **Desenvolvedores**:
+    Bruno Santos Fernandes,
+    ,Matheus Félix Dias
+    ,Lana Ramos Gomes
+    ,Kayla Cristinny Silva Santana
+    ,Miquele Gomes Nogueira Santana
+    ,Luiz Gustavo do Valle Vieira
+## Compilação e Execução
+### No Windows
+1. **Compilar o código:** 
+- Abra o Prompt de Comando (cmd). 
+- Navegue até o diretório onde o arquivo `main.c` está localizado. 
+``` cd caminho\para\o\diretorio ``` 
+- Compile o código usando o GCC. ``` gcc main.c -o conversor ``` 
+2. **Executar o programa:** 
+- Ainda no Prompt de Comando, execute o programa compilado. ``` conversor.exe ```
+### No Linux
+1. **Compilar o código:** 
+- Abra o terminal. 
+- Navegue até o diretório onde o arquivo `main.c` está localizado. 
+``` cd /caminho/para/o/diretorio ``` 
+- Compile o código usando o GCC. ``` gcc main.c -o conversor ``` 
+2. **Executar o programa:** 
+- Ainda no terminal, execute o programa compilado. ``` ./conversor ```
